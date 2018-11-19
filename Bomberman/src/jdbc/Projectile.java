@@ -171,7 +171,7 @@ public class Projectile {
     public void Ajouter(){
         try {
 
-            PreparedStatement requete = connexion.prepareStatement("INSERT INTO projectiles VALUES ('"+this.getType()+"','"+this.x+"','"+this.y+"','"+this.naissance+"','"+this.vitessex+"','"+this.vitessey+"','"+this.hauteur+"','"+this.largeur+"','"+this.numero_lanceur+"',NOW())");
+            PreparedStatement requete = connexion.prepareStatement("INSERT INTO projectiles VALUES ('"+this.getType()+"','"+this.x+"','"+this.y+"','"+this.naissance+"','"+this.vitessex+"','"+this.vitessey+"','"+this.hauteur+"','"+this.largeur+"','"+this.numero_lanceur+"')");
             
             
             requete.executeUpdate();
@@ -195,7 +195,6 @@ public class Projectile {
         
         return EstPerime;
     }
-    
 
     public void Exploser(){
         
@@ -224,7 +223,6 @@ public class Projectile {
         
         return Aexpire;
     }
-    
 
     public Projectile EstArme(Projectile proj, Joueur joueur, String Arme){
         if (Arme == "couteau"){
