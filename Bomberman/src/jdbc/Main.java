@@ -53,18 +53,13 @@ public class Main extends javax.swing.JFrame {
                 Moi.Push();
                 Adversaires.charger();
                 
-                //if (Moi.getId == 1){
-                //    Projectiles.Avancer();  (à créer par équipe SQL)
-                //    Projetciles.Push();
-                //}
+                Projectiles.UpdateProjectiles(Moi.getId());
                 
                 //if (Moi.getId ==2){
                 //    Bonus.Generer();
                 //    Bonus.Push();         (à créer par équipe SQL)
                 //}
                 
-            
-                //>>> Map.Update(Moi,Adversaires,Projectiles,Bonus);  (à créer par équipe Graphisme)
                 jeu.Update(Moi);
                 jeu.Afficher(contexteBuffer);
                 jLabel1.repaint();
@@ -300,7 +295,13 @@ public class Main extends javax.swing.JFrame {
             Projectile proj = new Projectile();
             proj.EstArme(proj, Moi, Moi.getArme());
             Projectiles.add(proj);
+<<<<<<< HEAD
+            proj.Ajouter();
+            System.out.println("Coup de couteau");
+            System.out.println(System.currentTimeMillis());
+=======
             System.out.println("Attaque !");
+>>>>>>> a323a201fc830a3aebc0222bd009026547d0cffc
             Moi.setDirection(2);
         }
         if(evt.getKeyCode() == evt.VK_LEFT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
