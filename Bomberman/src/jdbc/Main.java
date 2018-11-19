@@ -32,6 +32,7 @@ public class Main extends javax.swing.JFrame {
     public static int largeurPersos=25;
     public static int hauteurPersos=40;
     private Projectile Proj;
+    public static Connection connexion;
     
     /**
      * Creates new form Main
@@ -96,6 +97,9 @@ public class Main extends javax.swing.JFrame {
         ID = parseInt(args[0]);
         Moi.setPseudo(args[1]);
         Moi.setId(ID);
+        
+        
+        
         Moi.Pull(ID);
         Adversaires.InitBaseAdversaires(ID);
         

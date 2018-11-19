@@ -5,6 +5,10 @@
  */
 package jdbc;
 
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import static jdbc.Main.connexion;
+
 /**
  *
  * @author pdolle
@@ -16,6 +20,14 @@ public class Logger extends javax.swing.JFrame {
      */
     public Logger() {
         initComponents();
+        
+        try {
+
+            connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**

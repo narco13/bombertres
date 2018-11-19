@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import static jdbc.Main.connexion;
 
 /**
  *
@@ -24,7 +25,7 @@ public class BaseJoueur {
     public static void nettoyer(){
         
         try {
-                Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+                
 
                 PreparedStatement requete = connexion.prepareStatement("UPDATE Joueur SET x = ?, y = ?, pv = ?, arme = ?, direction = ?, etat = ?, munitions =?,pseudo=? WHERE id =?");
                 requete.setInt(1,50);
@@ -87,7 +88,7 @@ public class BaseJoueur {
                 
 
                 requete.close();
-                connexion.close();
+                
 
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -100,7 +101,7 @@ public class BaseJoueur {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT pseudo, x, y, pv, arme, direction, etat, munitions FROM Joueur WHERE id ="+this.joueur1.getId());
             ResultSet resultat = requete.executeQuery();
@@ -118,7 +119,7 @@ public class BaseJoueur {
             }
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -126,7 +127,7 @@ public class BaseJoueur {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT pseudo, x, y, pv, arme, direction, etat, munitions FROM Joueur WHERE id ="+this.joueur2.getId());
             ResultSet resultat = requete.executeQuery();
@@ -143,7 +144,7 @@ public class BaseJoueur {
             }
 
             requete.close();
-            connexion.close();
+           
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -151,7 +152,7 @@ public class BaseJoueur {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+           
 
             PreparedStatement requete = connexion.prepareStatement("SELECT pseudo, x, y, pv, arme, direction, etat, munitions FROM Joueur WHERE id ="+this.joueur3.getId());
             ResultSet resultat = requete.executeQuery();
@@ -168,7 +169,7 @@ public class BaseJoueur {
             }
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -183,8 +184,6 @@ public class BaseJoueur {
         //Récupération du premier ID libre dans la basejoueur 
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
-
             PreparedStatement requete = connexion.prepareStatement("SELECT id FROM Joueur WHERE etat=-1");
             ResultSet resultat = requete.executeQuery();
             if (resultat.next()) {
@@ -193,7 +192,7 @@ public class BaseJoueur {
             }
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -207,7 +206,7 @@ public class BaseJoueur {
             try {
                 System.out.println("connexion2 ok");
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+            
 
             PreparedStatement requete = connexion.prepareStatement("UPDATE joueur SET pseudo = ?, etat = ? WHERE id =?");
             
@@ -218,7 +217,7 @@ public class BaseJoueur {
             requete.executeUpdate();
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();

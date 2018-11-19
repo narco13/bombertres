@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import static jdbc.Main.Adversaires;
 import static jdbc.Main.Murs;
+import static jdbc.Main.connexion;
 import static jdbc.Main.hauteurPersos;
 import static jdbc.Main.largeurPersos;
 
@@ -284,7 +285,6 @@ public class Joueur {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
 
             PreparedStatement requete = connexion.prepareStatement("UPDATE joueur SET pseudo = ?, x = ?, y = ?, pv = ?, arme = ?, etat = ?, direction = ?, munitions = ? WHERE id = ?");
             requete.setString(1,this.pseudo );
@@ -301,7 +301,7 @@ public class Joueur {
             requete.executeUpdate();
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -313,7 +313,7 @@ public class Joueur {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT pseudo, x, y, pv, arme, direction, etat, munitions FROM Joueur WHERE id ="+id);
             ResultSet resultat = requete.executeQuery();
@@ -330,7 +330,7 @@ public class Joueur {
             }
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();

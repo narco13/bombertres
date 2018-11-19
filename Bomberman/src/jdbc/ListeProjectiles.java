@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import static jdbc.Main.connexion;
 
 /**
  *
@@ -49,7 +50,7 @@ public class ListeProjectiles {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+            
 
             PreparedStatement requete = connexion.prepareStatement("SELECT type,x,y,timer,vitesse x,vitesse y,hauteur,largeur,numero_lanceur FROM Projectiles");
             ResultSet resultat = requete.executeQuery();
@@ -68,7 +69,7 @@ public class ListeProjectiles {
             }
 
             requete.close();
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -86,7 +87,7 @@ public class ListeProjectiles {
         
         try {
 
-            Connection connexion = DriverManager.getConnection("jdbc:mysql://nemrod.ens2m.fr:3306/20182019_s1_vs2_tp1_bomberman?serverTimezone=UTC", "tutur", "bomberman");
+           
 
             
             for(Projectile proj : this.Liste){
@@ -108,7 +109,7 @@ public class ListeProjectiles {
             
 
             
-            connexion.close();
+            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
