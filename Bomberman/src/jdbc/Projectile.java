@@ -232,14 +232,3 @@ public class Projectile {
     }
    
 }
-
-    
-/*if(evt.getKeyCode() == evt.VK_RIGHT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 1000){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.estCouteau(proj, Moi);
-            Projectiles.add(proj);
-            System.out.println("Coup de couteau");
-            System.out.println(System.currentTimeMillis());
-            Moi.setDirection(2);
-        }*/

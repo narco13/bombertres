@@ -290,16 +290,9 @@ public class Main extends javax.swing.JFrame {
         }
         
         
-        if(evt.getKeyCode() == evt.VK_RIGHT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.EstArme(proj, Moi, Moi.getArme());
-            Projectiles.add(proj);
-            proj.Ajouter();
-            System.out.println("Coup de couteau");
-            System.out.println(System.currentTimeMillis());
-            System.out.println("Attaque !");
+        if(evt.getKeyCode() == evt.VK_RIGHT){
             Moi.setDirection(2);
+            this.Projectiles.addAll(Moi.Attaque(Moi.getArme(), System.currentTimeMillis()));
         }
         if(evt.getKeyCode() == evt.VK_LEFT){
             Moi.setDirection(4);
