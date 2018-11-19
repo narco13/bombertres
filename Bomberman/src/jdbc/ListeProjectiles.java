@@ -147,7 +147,7 @@ public class ListeProjectiles {
                 boolean AExpire = Proj.Avancer();
                 
                 if (AExpire){
-                    PreparedStatement requete2 = connexion.prepareStatement("DELETE FROM projectiles WHERE timer = ?, numero_lanceur=? ");
+                    PreparedStatement requete2 = connexion.prepareStatement("DELETE FROM projectiles WHERE timer = ? AND numero_lanceur=? ");
                     requete2.setLong(1, Proj.getNaissance());
                     requete2.setInt(2, Proj.getNumero_lanceur());
                     
@@ -156,12 +156,12 @@ public class ListeProjectiles {
                     requete2.close();
                 }else{
                     
-                    PreparedStatement requete3 = connexion.prepareStatement("UPDATE projectiles SET x = ?, y = ? WHERE timer = ?, numero_lanceur =?");
+                    PreparedStatement requete3 = connexion.prepareStatement("UPDATE projectiles SET x = ?, y = ? WHERE timer = ? AND numero_lanceur =?");
                     requete3.setInt(1, Proj.getX());
                     requete3.setInt(2, Proj.getY());
                     requete3.setLong(3, Proj.getNaissance());
                     requete3.setInt(4, Proj.getNumero_lanceur());
-                    System.out.println(requete);
+                    
                     requete3.executeUpdate();
 
                     requete3.close();   
