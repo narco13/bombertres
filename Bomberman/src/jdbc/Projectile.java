@@ -152,10 +152,6 @@ public class Projectile {
         return Choc;
     }
     
-    public Projectile estCouteau(Projectile proj,Joueur joueur){
-        proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
-        return proj;
-    }
     
     public boolean EstPerime(){
         boolean EstPerime =false;
@@ -170,4 +166,22 @@ public class Projectile {
         return EstPerime;
     }
     
+    public Projectile EstArme(Projectile proj, Joueur joueur, String Arme){
+        if (Arme == "couteau"){
+        proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
+        }
+        return proj;
+    }
+   
 }
+
+    
+/*if(evt.getKeyCode() == evt.VK_RIGHT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 1000){
+            Moi.setDerniereAttaque(System.currentTimeMillis());
+            Projectile proj = new Projectile();
+            proj.estCouteau(proj, Moi);
+            Projectiles.add(proj);
+            System.out.println("Coup de couteau");
+            System.out.println(System.currentTimeMillis());
+            Moi.setDirection(2);
+        }*/
