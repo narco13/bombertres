@@ -3,6 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/Z:/Bureau/github2/bombertres/Bomberman/src/jdbc/Main.java</file>
+            <file>file:/Z:/Bureau/github2/bombertres/Bomberman/src/jdbc/Projectile.java</file>
+=======
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/ListeProjectiles.java</file>
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/ListeMur.java</file>
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/Logger.java</file>
@@ -16,6 +20,7 @@
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/TestSelectAll.java</file>
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/TestUpdate.java</file>
             <file>file:/Z:/Bureau/Bomber2/bombertres/Bomberman/src/jdbc/Mur.java</file>
+>>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
         </group>
     </open-files>
 </project-private>

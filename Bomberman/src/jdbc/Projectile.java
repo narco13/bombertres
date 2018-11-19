@@ -253,6 +253,10 @@ public class Projectile {
         return EstPerime;
     }
     
+<<<<<<< HEAD
+
+=======
+>>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
     public void Exploser(){
         
         
@@ -280,7 +284,11 @@ public class Projectile {
         
         return Aexpire;
     }
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
     public Projectile EstArme(Projectile proj, Joueur joueur, String Arme){
         if (Arme == "couteau"){
         proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
@@ -288,6 +296,10 @@ public class Projectile {
         return proj;
     }
    
+<<<<<<< HEAD
+
+=======
+>>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
 }
 
     
