@@ -171,7 +171,7 @@ public class Projectile {
     public void Ajouter(){
         try {
 
-            PreparedStatement requete = connexion.prepareStatement("INSERT INTO projectiles VALUES ('"+this.getType()+"','"+this.x+"','"+this.y+"','"+this.naissance+"','"+this.vitessex+"','"+this.vitessey+"','"+this.hauteur+"','"+this.largeur+"','"+this.numero_lanceur+"',NOW())");
+            PreparedStatement requete = connexion.prepareStatement("INSERT INTO projectiles VALUES ('"+this.getType()+"','"+this.x+"','"+this.y+"','"+this.naissance+"','"+this.vitessex+"','"+this.vitessey+"','"+this.hauteur+"','"+this.largeur+"','"+this.numero_lanceur+"')");
             
             
             requete.executeUpdate();
@@ -196,7 +196,6 @@ public class Projectile {
         return EstPerime;
     }
     
-<<<<<<< HEAD
     public void Exploser(){
         
         
@@ -225,7 +224,6 @@ public class Projectile {
         return Aexpire;
     }
     
-=======
     public Projectile EstArme(Projectile proj, Joueur joueur, String Arme){
         if (Arme == "couteau"){
         proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
@@ -233,7 +231,6 @@ public class Projectile {
         return proj;
     }
    
->>>>>>> a323a201fc830a3aebc0222bd009026547d0cffc
 }
 
     
