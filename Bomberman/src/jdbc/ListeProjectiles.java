@@ -41,6 +41,10 @@ public class ListeProjectiles {
         this.Liste.add(proj);
     }
     
+    public void addAll(ArrayList<Projectile> Liste){
+        this.Liste.addAll(Liste);
+    }
+    
     
     
     

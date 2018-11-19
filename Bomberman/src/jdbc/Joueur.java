@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import static jdbc.Main.Adversaires;
 import static jdbc.Main.Murs;
 import static jdbc.Main.connexion;
@@ -40,6 +41,7 @@ public class Joueur {
     private boolean deplacerHaut = false;
     private boolean deplacerBas = false;
     private long derniereAttaque;
+    private long tempsEntreAttaque;
     
 
     /*constructeur*/
@@ -53,6 +55,7 @@ public class Joueur {
         this.direction = direction;
         this.etat = etat;
         this.munition = munition;
+        this.tempsEntreAttaque = 500; /* a changer à chaque changement d'armes*/
     }
     
     
@@ -289,6 +292,19 @@ public class Joueur {
         return estoccupee;
     }
     
+    public ArrayList<Projectile> Attaque(String Arme, long temps){
+        ArrayList<Projectile> Liste = new ArrayList<>();
+        if(temps - this.derniereAttaque > this.tempsEntreAttaque){
+            this.derniereAttaque = System.currentTimeMillis();
+            Projectile proj = new Projectile();
+            proj.EstArme(proj, this, this.arme);
+            Liste.add(proj);
+            this.munition = this.munition -1;
+            System.out.println("Attaque !");
+            System.out.println(System.currentTimeMillis());
+        }
+        return Liste;
+    }
     
     public void Push(){
         

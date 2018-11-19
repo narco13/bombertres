@@ -295,38 +295,23 @@ public class Main extends javax.swing.JFrame {
             Projectile proj = new Projectile();
             proj.EstArme(proj, Moi, Moi.getArme());
             Projectiles.add(proj);
-<<<<<<< HEAD
             proj.Ajouter();
             System.out.println("Coup de couteau");
             System.out.println(System.currentTimeMillis());
-=======
             System.out.println("Attaque !");
->>>>>>> a323a201fc830a3aebc0222bd009026547d0cffc
             Moi.setDirection(2);
         }
-        if(evt.getKeyCode() == evt.VK_LEFT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.EstArme(proj, Moi, Moi.getArme());
-            Projectiles.add(proj);
-            System.out.println("Attaque !");
+        if(evt.getKeyCode() == evt.VK_LEFT){
             Moi.setDirection(4);
+            this.Projectiles.addAll(Moi.Attaque(Moi.getArme(), System.currentTimeMillis()));
         }
-        if(evt.getKeyCode() == evt.VK_UP && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.EstArme(proj, Moi, Moi.getArme());
-            Projectiles.add(proj);
-            System.out.println("Attaque !");
+        if(evt.getKeyCode() == evt.VK_UP){
             Moi.setDirection(3);
+            this.Projectiles.addAll(Moi.Attaque(Moi.getArme(), System.currentTimeMillis()));
         }    
-        if(evt.getKeyCode() == evt.VK_DOWN && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.EstArme(proj, Moi, Moi.getArme());
-            Projectiles.add(proj);
-            System.out.println("Attaque !");
+        if(evt.getKeyCode() == evt.VK_DOWN){
             Moi.setDirection(4);
+            this.Projectiles.addAll(Moi.Attaque(Moi.getArme(), System.currentTimeMillis()));
         }
 
 
