@@ -5,8 +5,16 @@
  */
 package jdbc;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import static jdbc.Main.Adversaires;
+import static jdbc.Main.connexion;
 import static jdbc.Main.hauteurPersos;
 import static jdbc.Main.largeurPersos;
+import outils.OutilsJDBC;
 
 /**
  *
@@ -121,32 +129,39 @@ public class Projectile {
     
     
     
-    public boolean TestChoc(Joueur joueur){
+    public boolean TestChoc(){
         boolean Choc = false;
+        ArrayList<Joueur> listeJoueur=new ArrayList<>();
+        listeJoueur.add(Adversaires.joueur1);
+        listeJoueur.add(Adversaires.joueur2);
+        listeJoueur.add(Adversaires.joueur3);
         
         //Génération des 4 points délimitant le rectangle du joueur, en commencant 
         //par en haut à gauche et en tournant dans le sens horaire
+        for(Joueur joueur : listeJoueur){
+            
         
-        int x1=joueur.getX()-largeurPersos/2;
-        int y1=joueur.getY()-hauteurPersos/2;
-        int x2=joueur.getX()+largeurPersos/2;
-        int y2=y1;
-        int x3=x2;
-        int y3=joueur.getY()+hauteurPersos/2;
-        int x4=x1;
-        int y4=y3;
-        
-        if ((this.x-this.largeur/2)<x1 & (this.x+this.largeur/2)>x1 & (this.y-this.hauteur/2)<y1 & (this.y+this.largeur/2)>y1){
-            Choc = true;
-        }
-        if ((this.x-this.largeur/2)<x2 & (this.x+this.largeur/2)>x2 & (this.y-this.hauteur/2)<y2 & (this.y+this.largeur/2)>y2){
-            Choc = true;
-        }
-        if ((this.x-this.largeur/2)<x3 & (this.x+this.largeur/2)>x3 & (this.y-this.hauteur/2)<y3 & (this.y+this.largeur/2)>y3){
-            Choc = true;
-        }
-        if ((this.x-this.largeur/2)<x4 & (this.x+this.largeur/2)>x4 & (this.y-this.hauteur/2)<y4 & (this.y+this.largeur/2)>y4){
-            Choc = true;
+            int x1=joueur.getX()-largeurPersos/2;
+            int y1=joueur.getY()-hauteurPersos/2;
+            int x2=joueur.getX()+largeurPersos/2;
+            int y2=y1;
+            int x3=x2;
+            int y3=joueur.getY()+hauteurPersos/2;
+            int x4=x1;
+            int y4=y3;
+
+            if ((this.x-this.largeur/2)<x1 & (this.x+this.largeur/2)>x1 & (this.y-this.hauteur/2)<y1 & (this.y+this.largeur/2)>y1){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x2 & (this.x+this.largeur/2)>x2 & (this.y-this.hauteur/2)<y2 & (this.y+this.largeur/2)>y2){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x3 & (this.x+this.largeur/2)>x3 & (this.y-this.hauteur/2)<y3 & (this.y+this.largeur/2)>y3){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x4 & (this.x+this.largeur/2)>x4 & (this.y-this.hauteur/2)<y4 & (this.y+this.largeur/2)>y4){
+                Choc = true;
+            }
         }
         
         return Choc;
@@ -155,6 +170,21 @@ public class Projectile {
     public Projectile estCouteau(Projectile proj,Joueur joueur){
         proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
         return proj;
+    }
+    
+    public void Ajouter(){
+        try {
+
+            PreparedStatement requete = connexion.prepareStatement("INSERT INTO projectiles VALUES ('"+this.getType()+"','"+this.x+"','"+this.y+"','"+this.naissance+"','"+this.vitessex+"','"+this.vitessey+"','"+this.hauteur+"','"+this.largeur+"','"+this.numero_lanceur+"',NOW())");
+            
+            
+            requete.executeUpdate();
+
+            requete.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
     
     public boolean EstPerime(){
@@ -168,6 +198,34 @@ public class Projectile {
         
         
         return EstPerime;
+    }
+    
+    public void Exploser(){
+        
+        
+        // Rajouter les actions à faire lors du déclenchement d'une munition ici
+        
+        
+    }
+    
+    public boolean Avancer(){
+        
+        boolean Aexpire=false;
+        
+        this.x += this.vitessex;
+        this.y += this.vitessey;
+        
+        
+        if (this.EstPerime()){
+            Aexpire = true;
+        }
+        if (this.TestChoc()){
+            Aexpire =true;
+            this.Exploser();
+        }
+        
+        
+        return Aexpire;
     }
     
 }
