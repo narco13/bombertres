@@ -14,7 +14,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import static jdbc.Main.Adversaires;
 import static jdbc.Main.Murs;
 import static jdbc.Main.hauteurPersos;
@@ -39,6 +38,7 @@ public class Joueur {
     private boolean deplacerGauche = false;
     private boolean deplacerHaut = false;
     private boolean deplacerBas = false;
+    private long derniereAttaque;
     
 
     /*constructeur*/
@@ -108,6 +108,10 @@ public class Joueur {
     public void setDeplacerBas(boolean deplacerBas) {
         this.deplacerBas = deplacerBas;
     }
+
+    public void setDerniereAttaque(long derniereAttaque) {
+        this.derniereAttaque = derniereAttaque;
+    }
     
     
     
@@ -164,6 +168,11 @@ public class Joueur {
     public boolean isDeplacerBas() {
         return deplacerBas;
     }
+
+    public long getDerniereAttaque() {
+        return derniereAttaque;
+    }
+    
     
     
     
