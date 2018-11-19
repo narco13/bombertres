@@ -30,7 +30,7 @@ public class Main extends javax.swing.JFrame {
     public static ListeProjectiles Projectiles = new ListeProjectiles();
     private Jeu jeu;
     public static int largeurPersos=25;
-    public static int hauteurPersos=40;
+    public static int hauteurPersos=35;
     private Projectile Proj;
     public static Connection connexion;
     
@@ -117,6 +117,8 @@ public class Main extends javax.swing.JFrame {
         Murs.add(new Mur(0,0,30,350));
         Murs.add(new Mur(547,0,577,350));
         Murs.add(new Mur(0,310,577,350));
+        
+        
         
         
     }
@@ -292,7 +294,7 @@ public class Main extends javax.swing.JFrame {
         
         if(evt.getKeyCode() == evt.VK_RIGHT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
             Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
+            Projectile proj = new Projectile("couteau",0,0,0,0,0,0,Moi.getId(),0);
             proj.EstArme(proj, Moi, Moi.getArme());
             Projectiles.add(proj);
             proj.Ajouter();
