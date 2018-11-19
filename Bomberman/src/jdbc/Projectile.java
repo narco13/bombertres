@@ -253,14 +253,15 @@ public class Projectile {
         return EstPerime;
     }
     
-<<<<<<< HEAD
 
-=======
->>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
     public void Exploser(){
-        
-        
         // Rajouter les actions à faire lors du déclenchement d'une munition ici
+        if (this.getType() == "couteau"){
+            if(this.TestChoc(Moi)){
+                Moi.setPv(Moi.getPv()-1);
+                System.out.println("degat couteau" + Moi.getPseudo());
+            }
+        }
         
         
     }
@@ -284,11 +285,7 @@ public class Projectile {
         
         return Aexpire;
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
     public Projectile EstArme(Projectile proj, Joueur joueur, String Arme){
         if (Arme == "couteau"){
         proj = new Projectile("couteau",joueur.getX(),joueur.getY(),0,0,10,10,joueur.getId(),System.currentTimeMillis());
@@ -296,10 +293,7 @@ public class Projectile {
         return proj;
     }
    
-<<<<<<< HEAD
 
-=======
->>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
 }
 
     

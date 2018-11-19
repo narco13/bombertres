@@ -349,7 +349,7 @@ public class Main extends javax.swing.JFrame {
             Projectile proj = new Projectile("couteau",0,0,0,0,0,0,Moi.getId(),0);
             proj.EstArme(proj, Moi, Moi.getArme());
             Projectiles.add(proj);
-<<<<<<< HEAD
+
 
             proj.Ajouter();
             System.out.println("Coup de couteau");
@@ -357,12 +357,12 @@ public class Main extends javax.swing.JFrame {
 
             System.out.println("Attaque !");
 
-=======
+
             proj.Ajouter();
             System.out.println("Coup de couteau");
             System.out.println(System.currentTimeMillis());
             System.out.println("Attaque !");
->>>>>>> 179f87a65776ebe02ab2bc7f08ccde411bd2652a
+
             Moi.setDirection(2);
         }
         if(evt.getKeyCode() == evt.VK_LEFT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 500){
