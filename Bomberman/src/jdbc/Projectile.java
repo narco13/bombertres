@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import static jdbc.Main.Adversaires;
+import static jdbc.Main.Moi;
 import static jdbc.Main.connexion;
 import static jdbc.Main.hauteurPersos;
 import static jdbc.Main.largeurPersos;
@@ -46,6 +47,7 @@ public class Projectile {
     }
 
     public Projectile() {
+        
     }
     
     /*getters*/
@@ -128,6 +130,26 @@ public class Projectile {
     
     
     
+    public ArrayList<Joueur> SontEnRange(){
+        ArrayList<Joueur> JoueursEnRange = new ArrayList<Joueur>();
+        
+        if (TestChoc(Moi)){
+            JoueursEnRange.add(Moi);
+        }
+        if (TestChoc(Adversaires.joueur1)){
+            JoueursEnRange.add(Moi);
+        }
+        if (TestChoc(Adversaires.joueur2)){
+            JoueursEnRange.add(Moi);
+        }
+        if (TestChoc(Adversaires.joueur3)){
+            JoueursEnRange.add(Moi);
+        }
+        
+        return JoueursEnRange;
+    }
+    
+    
     
     public boolean TestChoc(){
         boolean Choc = false;
@@ -163,6 +185,41 @@ public class Projectile {
                 Choc = true;
             }
         }
+        
+        return Choc;
+    }
+    
+    public boolean TestChoc(Joueur joueur){
+        boolean Choc = false;
+        
+        
+        //Génération des 4 points délimitant le rectangle du joueur, en commencant 
+        //par en haut à gauche et en tournant dans le sens horaire
+        
+            
+        
+            int x1=joueur.getX()-largeurPersos/2;
+            int y1=joueur.getY()-hauteurPersos/2;
+            int x2=joueur.getX()+largeurPersos/2;
+            int y2=y1;
+            int x3=x2;
+            int y3=joueur.getY()+hauteurPersos/2;
+            int x4=x1;
+            int y4=y3;
+
+            if ((this.x-this.largeur/2)<x1 & (this.x+this.largeur/2)>x1 & (this.y-this.hauteur/2)<y1 & (this.y+this.largeur/2)>y1){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x2 & (this.x+this.largeur/2)>x2 & (this.y-this.hauteur/2)<y2 & (this.y+this.largeur/2)>y2){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x3 & (this.x+this.largeur/2)>x3 & (this.y-this.hauteur/2)<y3 & (this.y+this.largeur/2)>y3){
+                Choc = true;
+            }
+            if ((this.x-this.largeur/2)<x4 & (this.x+this.largeur/2)>x4 & (this.y-this.hauteur/2)<y4 & (this.y+this.largeur/2)>y4){
+                Choc = true;
+            }
+        
         
         return Choc;
     }
@@ -230,5 +287,5 @@ public class Projectile {
         }
         return proj;
     }
-   
+
 }
