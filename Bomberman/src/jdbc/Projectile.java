@@ -252,7 +252,10 @@ public class Projectile {
         
         return EstPerime;
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 17c93f5beb1f303caac143570277069e6dad6c87
 
     public void Exploser(){
         // Rajouter les actions à faire lors du déclenchement d'une munition ici
@@ -292,17 +295,9 @@ public class Projectile {
         }
         return proj;
     }
+<<<<<<< HEAD
    
+=======
+>>>>>>> 17c93f5beb1f303caac143570277069e6dad6c87
 
 }
-
-    
-/*if(evt.getKeyCode() == evt.VK_RIGHT && System.currentTimeMillis() - Moi.getDerniereAttaque() > 1000){
-            Moi.setDerniereAttaque(System.currentTimeMillis());
-            Projectile proj = new Projectile();
-            proj.estCouteau(proj, Moi);
-            Projectiles.add(proj);
-            System.out.println("Coup de couteau");
-            System.out.println(System.currentTimeMillis());
-            Moi.setDirection(2);
-        }*/
