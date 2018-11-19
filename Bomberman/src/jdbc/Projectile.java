@@ -23,7 +23,6 @@ public class Projectile {
     private int largeur;
     private int numero_lanceur;
     private long naissance;
-
     
     /*constructeur*/
     public Projectile(String type, int x, int y, int vitessex, int vitessey, int hauteur, int largeur, int numero_lanceur, long naissance) {
@@ -36,7 +35,6 @@ public class Projectile {
         this.largeur = largeur;
         this.numero_lanceur = numero_lanceur;
         this.naissance = naissance;
-
     }
 
     public Projectile() {
@@ -118,6 +116,7 @@ public class Projectile {
     public void setNaissance(long naissance) {
         this.naissance = naissance;
     }
+
     
     
     
